@@ -20,7 +20,7 @@ jobs:
         id: extract_branch
       - name: Build the Docker image
         run: |
-          docker build -t erdzan12/test:${{ steps.extract_branch.outputs.branch }} .
+          docker build -t erdzan12/test:master .
       - name: Push to registry
         env:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
