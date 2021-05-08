@@ -10,7 +10,10 @@ jobs:
   say_hello:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@master
+        with:
+          name: rwth-acis/mobsos-evaluation-center
+          ref: refs/heads/release
       - name: Extract branch name
         shell: bash
         run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
