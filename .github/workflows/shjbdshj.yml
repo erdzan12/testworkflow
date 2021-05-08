@@ -25,3 +25,12 @@ jobs:
         run: |
           docker login -u $DOCKER_USERNAME -p $DOCKER_PW
           docker push erdzan12/test:${{ steps.extract_branch.outputs.branch }}
+  notify:
+    needs: say_hello
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy Stage
+        uses: fjogeleit/http-request-action@master
+        with:
+          url: "https://sleepy-cove-96643.herokuapp.com/oikjdsjkns"
+          method: "POST"
