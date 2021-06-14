@@ -43,4 +43,4 @@ jobs:
           pip install requests
       - name: execute py script # run the run.py to get the latest data
         run: |
-          python test.py
+          python test.py ${{ github.event.inputs.sessionid }}
