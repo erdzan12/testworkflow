@@ -23,6 +23,12 @@ jobs:
         shell: bash
         run: ls
         id: extract_branch
-      - name: Build the Docker image
+      - name: Build jar
         run: |
           gradle wrapper --gradle-version 6.8.1 && ./gradlew jar
+      - name: Archive production artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: dist-without-markdown
+          path: |
+            las2peer-akg/
