@@ -20,4 +20,4 @@ jobs:
         id: extract_branch
       - name: Build the Docker image
         run: |
-          gradlew build
+          gradle wrapper && ./gradlew jar
