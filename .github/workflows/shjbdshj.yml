@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@master
         with:
-          repository: rwth-acis/mobsos-evaluation-center
+          repository: rwth-acis/las2peer-akg
           path: ./
       - name: Extract branch name
         shell: bash
@@ -20,20 +20,4 @@ jobs:
         id: extract_branch
       - name: Build the Docker image
         run: |
-          docker build -t erdzan12/test:master .
-      - name: Push to registry
-        env:
-          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-          DOCKER_PW: ${{ secrets.DOCKER_PW }}
-        run: |
-          docker login -u $DOCKER_USERNAME -p $DOCKER_PW
-          docker push erdzan12/test:${{ steps.extract_branch.outputs.branch }}
-  notify:
-    needs: say_hello
-    runs-on: ubuntu-latest
-    steps:
-      - name: Deploy Stage
-        uses: fjogeleit/http-request-action@master
-        with:
-          url: "https://sleepy-cove-96643.herokuapp.com/oikjdsjkns"
-          method: "POST"
+          gradle jar
