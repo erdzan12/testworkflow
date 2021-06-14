@@ -6,6 +6,10 @@ on:
         description: "Who to greet"
         required: true
         default: "World"
+      sessionid: # id of input
+        description: "Who to greet"
+        required: true
+        default: "World"
 jobs:
   say_hello:
     runs-on: ubuntu-latest
