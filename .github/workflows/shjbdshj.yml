@@ -20,4 +20,4 @@ jobs:
         id: extract_branch
       - name: Build the Docker image
         run: |
-          gradle wrapper && ./gradlew jar
+          gradle wrapper --gradle-version 6.8.1 && ./gradlew jar
