@@ -20,7 +20,7 @@ with open("gradle.properties") as myfile:
             las2peerVersion = las2peerVersion.replace('\n', '')
 
 multipart_form_data = {
-    'jarfile': (las2peerVersion + '-'+las2peerVersion+'.jar', open('export/jars/'+las2peerVersion+'-'+las2peerVersion+'.jar', 'rb')),
+    'jarfile': (las2peerName + '-'+las2peerVersion+'.jar', open('export/jars/'+las2peerName+'-'+las2peerVersion+'.jar', 'rb')),
     'supplement': '{"class":"' + las2peerClass + '","name":"'+las2peerClass+'","description":"","vcsUrl":"","frontendUrl":"/akg"}'
 
 }
