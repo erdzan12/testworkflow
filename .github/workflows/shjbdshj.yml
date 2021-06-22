@@ -42,7 +42,7 @@ jobs:
         with:
           name: dist-without-markdown
           path: |
-            las2peer-akg/
+            ${{ steps.getversion.outputs.version }}/
       - name: Archive production artifacts
         uses: actions/upload-artifact@v2
         with:
