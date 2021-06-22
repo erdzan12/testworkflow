@@ -40,6 +40,9 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: dist-without-markdown
+      - shell: bash
+        run: |
+          ls
       - name: checkout repo content
         uses: actions/checkout@v2 # checkout the repository content to github runner.
       - name: setup python
