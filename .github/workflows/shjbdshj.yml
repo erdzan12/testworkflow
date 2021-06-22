@@ -48,12 +48,22 @@ jobs:
           name: dist-without-markdown
           path: |
             las2peer-akg/
+      - name: Archive production artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: gradlefile
+          path: |
+            gradle.properties
       - name: checkout repo content
         uses: actions/checkout@v2 # checkout the repository content to github runner.
       - name: Download math result for job 1
         uses: actions/download-artifact@v2
         with:
           name: dist-without-markdown
+      - name: Download math result for job 1
+        uses: actions/download-artifact@v2
+        with:
+          name: gradlefile
       - shell: bash
         run: |
           ls export/jars

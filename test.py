@@ -1,9 +1,16 @@
 import requests
 import sys
+las2peerClass = ""
+with open("gradle.properties") as myfile:
+    for line in myfile:
+        name, var = line.partition("=")[::2]
+        if(name == "service.class"):
+            print(name, var)
+            las2peerClass = var
 
 multipart_form_data = {
     'jarfile': ('i5.las2peer.services.las2peerakg-1.0.5.jar', open('export/jars/i5.las2peer.services.las2peerakg-1.0.0.jar', 'rb')),
-    'supplement': '{"class":"' + sys.argv[2] + '","name":"'+sys.argv[3]+'","description":"","vcsUrl":"","frontendUrl":"/akg"}'
+    'supplement': '{"class":"' + las2peerClass + '","name":"'+las2peerClass+'","description":"","vcsUrl":"","frontendUrl":"/akg"}'
 
 }
 
