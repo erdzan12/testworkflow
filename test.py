@@ -7,6 +7,7 @@ with open("gradle.properties") as myfile:
         if(name == "service.class"):
             print(name, var)
             las2peerClass = var
+            las2peerClass = las2peerClass.replace('\n', '')
 
 multipart_form_data = {
     'jarfile': ('i5.las2peer.services.las2peerakg-1.0.5.jar', open('export/jars/i5.las2peer.services.las2peerakg-1.0.0.jar', 'rb')),
