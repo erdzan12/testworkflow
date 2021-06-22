@@ -36,6 +36,8 @@ jobs:
           name: dist-without-markdown
           path: |
             las2peer-akg/
+      - name: checkout repo content
+        uses: actions/checkout@v2 # checkout the repository content to github runner.
       - name: Download math result for job 1
         uses: actions/download-artifact@v2
         with:
@@ -43,8 +45,12 @@ jobs:
       - shell: bash
         run: |
           ls export/jars
-      - name: checkout repo content
-        uses: actions/checkout@v2 # checkout the repository content to github runner.
+      - shell: bash
+        run: |
+          ls export/
+      - shell: bash
+        run: |
+          ls
       - name: setup python
         uses: actions/setup-python@v2
         with:
