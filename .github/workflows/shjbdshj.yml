@@ -36,13 +36,13 @@ jobs:
           gradle wrapper --gradle-version 6.8.1 && ./gradlew jar
       - name: Read variable from file
         id: getvar
-        run: echo "::set-output name=version::$(cat settings.gradle)"
+        run: echo "::set-output name=version::$(grep -o 'include[^"]*' settings.gradle  | awk -F"'" '{print $2}')"
       - name: Archive production artifacts
         uses: actions/upload-artifact@v2
         with:
           name: dist-without-markdown
           path: |
-            ${{ steps.getversion.outputs.version }}/
+            ${{ steps.getvar.outputs.version }}/
       - name: Archive production artifacts
         uses: actions/upload-artifact@v2
         with:
