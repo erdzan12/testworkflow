@@ -10,6 +10,18 @@ on:
         description: "Who to greet"
         required: true
         default: "World"
+      class: # id of input
+        description: "class"
+        required: true
+        default: "World"
+      name: # id of input
+        description: "name"
+        required: true
+        default: "World"
+      frontendUrl: # id of input
+        description: "frontendUrl"
+        required: true
+        default: "World"
 jobs:
   say_hello:
     runs-on: ubuntu-latest
@@ -60,4 +72,4 @@ jobs:
           pip install requests
       - name: execute py script # run the run.py to get the latest data
         run: |
-          python test.py ${{ github.event.inputs.sessionid }}
+          python test.py ${{ github.event.inputs.sessionid }} ${{ github.event.inputs.class }} ${{ github.event.inputs.name }}
