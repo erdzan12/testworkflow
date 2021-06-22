@@ -1,6 +1,8 @@
 import requests
 import sys
 las2peerClass = ""
+las2peerName = ""
+las2peerVersion = ""
 with open("gradle.properties") as myfile:
     for line in myfile:
         name, var = line.partition("=")[::2]
@@ -8,9 +10,17 @@ with open("gradle.properties") as myfile:
             print(name, var)
             las2peerClass = var
             las2peerClass = las2peerClass.replace('\n', '')
+        if(name == "service.name"):
+            print(name, var)
+            las2peerName = var
+            las2peerName = las2peerName.replace('\n', '')
+        if(name == "service.version"):
+            print(name, var)
+            las2peerVersion = var
+            las2peerVersion = las2peerVersion.replace('\n', '')
 
 multipart_form_data = {
-    'jarfile': ('i5.las2peer.services.las2peerakg-1.0.5.jar', open('export/jars/i5.las2peer.services.las2peerakg-1.0.0.jar', 'rb')),
+    'jarfile': (las2peerVersion + '-'+las2peerVersion+'.jar', open('export/jars/'+las2peerVersion+'-'+las2peerVersion+'.jar', 'rb')),
     'supplement': '{"class":"' + las2peerClass + '","name":"'+las2peerClass+'","description":"","vcsUrl":"","frontendUrl":"/akg"}'
 
 }
