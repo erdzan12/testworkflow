@@ -7,7 +7,7 @@ multipart_form_data = {
 }
 cookies = {'sessionid': sys.argv[1]}
 
-response = requests.post('https://cae-dev.tech4comp.dbis.rwth-aachen.de/ba-erdzan/las2peer/services/upload',
+response = requests.post('https://cae-dev.tech4comp.dbis.rwth-aachen.de/las2peer/services/upload',
                          files=multipart_form_data, cookies=cookies)
 
 print(response.content)
